@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .col {
+            height: 1cm;
+            width: 1cm;
+            border:1px solid black;
+            padding: 5px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+        #tic-tac {
+            margin: 1cm;
+            padding-top: 0.5cm;
+            padding-left: 2.5cm;
+            padding-bottom: 1cm;
+            width:6cm;
+            border: 3px solid red;
+        }
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="tic-tac">
+        <h1>Tic Tac Toe</h1>
+        <div id="play_area">
+            <div class="row">
+                <div class="col" id="1" onclick="clicked()"></div>
+                <div class="col" id="2" onclick="clicked()"></div>
+                <div class="col" id="3" onclick="clicked()"></div>
+            </div>
+            <div class="row">
+                <div class="col" id="4" onclick="clicked()"></div>
+                <div class="col" id="5" onclick="clicked()"></div>
+                <div class="col" id="6" onclick="clicked()"></div>
+            </div>
+            <div class="row">
+                <div class="col" id="7" onclick="clicked()"></div>
+                <div class="col" id="8" onclick="clicked()"></div>
+                <div class="col" id="9" onclick="clicked()"></div>
+            </div>
+        </div>
+        <p id="turn"></p>
+        <b><p id="info"></p></b>
+        <button id="restart">Restart Game</button>
+    </div>
+
+    <script>
+        const turn = document.getElementById("turn");
+        const info = document.getElementById("info");
+        const one = document.getElementById("1");
+        const two = document.getElementById("2");
+        const three = document.getElementById("3");
+        const four = document.getElementById("4");
+        const five = document.getElementById("5");
+        const six = document.getElementById("6");
+        const seven = document.getElementById("7");
+        const eight = document.getElementById("8");
+        const nine = document.getElementById("9");
+        const restart = document.getElementById("restart");
+
+        one.addEventListener("click",Move1);
+        two.addEventListener("click",Move2);
+        three.addEventListener("click",Move3);
+        four.addEventListener("click",Move4);
+        five.addEventListener("click",Move5);
+        six.addEventListener("click",Move6);
+        seven.addEventListener("click",Move7);
+        eight.addEventListener("click",Move8);
+        nine.addEventListener("click",Move9);
+        restart.addEventListener("click", Restart);
+
+        function Move1(){
+            if(one.innerText=="x" || one.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+                console.log(one.innerText);
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   one.innerText = "x";
+                }
+                else{
+                    one.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move2(){
+            if(two.innerText=="x" || two.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   two.innerText = "x";
+                }
+                else{
+                    two.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move3(){
+            if(three.innerText=="x" || three.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   three.innerText = "x";
+                }
+                else{
+                    three.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move4(){
+            if(four.innerText=="x" || four.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   four.innerText = "x";
+                }
+                else{
+                    four.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move5(){
+            if(five.innerText=="x" || five.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   five.innerText = "x";
+                }
+                else{
+                    five.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move6(){
+            if(six.innerText=="x" || six.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   six.innerText = "x";
+                }
+                else{
+                    six.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move7(){
+            if(seven.innerText=="x" || seven.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   seven.innerText = "x";
+                }
+                else{
+                    seven.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move8(){
+            if(eight.innerText=="x" || eight.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   eight.innerText = "x";
+                }
+                else{
+                    eight.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        function Move9(){
+            if(nine.innerText=="x" || nine.innerText=="o"){
+                info.innerText="Invalid Move";
+                clicked();
+            }
+            else{
+                info.innerText="";
+                if(turn.innerText==="Player 1's Turn"){
+                   nine.innerText = "x";
+                }
+                else{
+                    nine.innerText = "o";
+                }
+            }
+            validate();
+        }
+
+        turn.innerText = "Player 1's Turn";
+        function clicked() {
+            if(turn.innerText==="Player 1's Turn"){
+
+                turn.innerText = "Player 2's Turn";
+            }
+            else{
+                turn.innerText="Player 1's Turn";
+            }
+        }
+        
+        function validate () {
+            if(one.innerText!="" && one.innerText===two.innerText && one.innerText===three.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(four.innerText!="" && four.innerText===five.innerText && four.innerText===six.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(seven.innerText!="" && seven.innerText===eight.innerText && seven.innerText===nine.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(one.innerText!="" && one.innerText===four.innerText && one.innerText===seven.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(two.innerText!="" && two.innerText===five.innerText && two.innerText===eight.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(three.innerText!="" && three.innerText===six.innerText && three.innerText===nine.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(one.innerText!="" && one.innerText===five.innerText && one.innerText===nine.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(three.innerText!="" && three.innerText===five.innerHTML && three.innerText===seven.innerText){
+                if(turn.innerText[7]==="1"){
+                    info.innerText = "Player 2 Won";
+                    Restart();
+                }
+                else{
+                    info.innerText = "Player 1 Won";
+                    Restart();
+                }
+            }
+
+            else if(one.innerText!="" && two.innerText!="" && three.innerText!="" && four.innerText!="" && five.innerText!="" && six.innerText!="" && seven.innerText!="" && eight.innerText!="" && nine.innerText!=""){
+                info.innerText = "Match Drawn";
+                Restart();
+            }
+        }
+
+        function Restart() {
+            one.innerText = "";
+            two.innerText = "";
+            three.innerText = "";
+            four.innerText = "";
+            five.innerText = "";
+            six.innerText = "";
+            seven.innerText = "";
+            eight.innerText = "";
+            nine.innerText = "";
+
+            turn.innerText = "Player 1's Turn";
+        }
+    </script>
+</body>
+</html>
